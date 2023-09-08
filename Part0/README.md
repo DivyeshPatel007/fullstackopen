@@ -46,6 +46,7 @@ sequenceDiagram
 ```
 
 #### Exercise 0.5
+
 >Single page app diagram
 
 ```mermaid
@@ -80,3 +81,20 @@ sequenceDiagram
 
 
 #### Exercise 0.6
+
+>New note in Single page app diagram
+
+```mermaid
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note right of browser:Browser send new POST request containing new note as JSON data (content of the note and timestamp)
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    server-->>browser: [{ content: "new note", date: "2023-08-25" }, ...]
+    deactivate server
+
+    Note right of browser: The browser executes the event handler function that renders the notes
+```
